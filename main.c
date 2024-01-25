@@ -4,12 +4,25 @@
 // Global shared telemetry data
 volatile uint32_t telemetry_data[2] = {0};
 
+// Function to increase taxation of the processor to plot the effects on chip temperature
+void dormamu_ive_come_to_bargain(void) {
+    for (size_t i = 0; i < 10; i++)
+    {
+        uint32_t random_number = get_rand_32();
+        printf("Random number %d: %lu\n", i, random_number);
+    }
+    
+}
+
 // Function to run on Core 1
 void core1_task() {
     while (1) {
         telemetry_data[1]++;
         printf("Core 1: Telemetry Data 0: %d\n", telemetry_data[0]);
         printf("Core 1: Telemetry Data 1: %d\n", telemetry_data[1]);
+        printf("\n");
+        dormamu_ive_come_to_bargain();
+        printf("\n");
         sleep_ms(2000);
     }
 }
@@ -38,7 +51,7 @@ int main() {
         float current_adc_temp = convert_voltage_to_temp(adc_voltage_converted);
         printf("ADC temperature: %f\n", current_adc_temp);
 
-        sleep_ms(2000);
+        sleep_ms(1000);
     }
 
     return 0;
