@@ -2,7 +2,12 @@
 #ifndef TEMP_H
 #define TEMP_H
 
+#include <stdio.h>
+#include "pico.h"
+#include "pico/time.h"
 #include "hardware/adc.h"
+#include "hardware/timer.h"
+#include "pico/float.h"
 
 static const float conversion = 3.3f / (1 << 12);
 static const float twenty_seven_degrees = 0.706;

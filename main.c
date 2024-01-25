@@ -25,7 +25,7 @@ int main() {
     printf("ADC status: %d\n", adc_status);
 
     while(1) {
-        telemetry_data[0] + 2;
+        telemetry_data[0] += 2;
         printf("Core 0: Telemetry Data 0: %d\n", telemetry_data[0]);
         printf("Core 0: Telemetry Data 1: %d\n", telemetry_data[1]);
 
