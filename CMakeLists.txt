@@ -22,6 +22,8 @@ target_link_libraries(multicore
     pico_rand
     pico_time
     hardware_adc
+    hardware_spi
+    hardware_sync
     hardware_timer
     )
 
@@ -33,6 +35,8 @@ pico_enable_stdio_usb(multicore 1)
 target_include_directories(multicore PRIVATE 
     ${PICO_SDK_PATH}/src/rp2_common/hardware_gpio 
     ${PICO_SDK_PATH}/src/rp2_common/hardware_adc
+    ${PICO_SDK_PATH}/src/rp2_common/hardware_spi
+    ${PICO_SDK_PATH}/src/rp2_common/hardware_sync
     ${PICO_SDK_PATH}/src/rp2_common/hardware_timer
 )
 

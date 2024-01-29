@@ -1,6 +1,23 @@
 # multicore
 
+General proof of concept for multicore use on RP2040 within a Raspberry Pi Pico W (or H) form factor.
 
+This is meant to experiment freely in a low-cost, low-risk environment with floating point arithmetic,
+SPI and I2C interfaces, DAC interfaces, and PID control loops. The initial implementation utilizes the
+multicore functionality of the RP2040 to monitor the onboard temperature sensor (which will be used as 
+a nice-to-have environmental awareness telemetry point) and induce some minor load on the processor by 
+generating a series of random numbers recursively in a loop.
+
+FIFO Use
+The Raspberry Pi Pico comes with two FIFOs for inter-core communication. FIFO 0 -> 1 and FIFO 1 -> 0. 
+These FIFOs will be used to pass notifications back and forth between processor cores, but not to trans-
+fer data between them. Data will be modified and a spinlock will be pulled by each core prior to reading 
+or modifying any data contained in the shared memory. This will prevent race conditions and ensure any 
+data that needs to be passed back and forth is readily available.
+
+
+
+Fourier Transform of a square wave.
 
 ## Getting started
 
